@@ -1,0 +1,216 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  min-height: 100vh;
+  background: linear-gradient(
+    135deg,
+    #ffd6e7,
+    #fff0f6
+  );
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  font-family: Arial, sans-serif;
+}
+/* =========================
+   CLICK ME
+========================= */
+.start-screen {
+  text-align: center;
+  z-index: 10;
+}
+#clickBtn {
+  border: none;
+  outline: none;
+  padding: 16px 35px;
+  font-size: 20px;
+  font-weight: bold;
+  color: white;
+  background: linear-gradient(
+    135deg,
+    #ff4f91,
+    #ff78ac
+  );
+  border-radius: 50px;
+  cursor: pointer;
+  box-shadow:
+    0 8px 25px rgba(255, 79, 145, 0.35);
+  transition: 0.3s ease;
+}
+#clickBtn:hover {
+  transform: scale(1.08);
+}
+#clickBtn:active {
+  transform: scale(0.95);
+}
+/* =========================
+   HIDDEN CONTENT
+========================= */
+.content {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 5;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+/* =========================
+   PHOTO
+========================= */
+.photo {
+  width: min(80vw, 350px);
+  height: min(80vw, 350px);
+  object-fit: cover;
+  border-radius: 25px;
+  border: 5px solid white;
+  box-shadow:
+    0 15px 40px rgba(0, 0, 0, 0.20),
+    0 0 30px rgba(255, 105, 160, 0.35);
+  opacity: 0;
+  transform: scale(0.5);
+  animation:
+    photoShow 1s ease forwards;
+}
+@keyframes photoShow {
+  0% {
+    opacity: 0;
+    transform:
+      scale(0.5)
+      rotate(-5deg);
+  }
+  70% {
+    opacity: 1;
+    transform:
+      scale(1.08)
+      rotate(2deg);
+  }
+  100% {
+    opacity: 1;
+    transform:
+      scale(1)
+      rotate(0deg);
+  }
+}
+/* =========================
+   I LOVE U
+========================= */
+.love-text {
+  margin-top: 25px;
+  font-size: 35px;
+  font-weight: bold;
+  color: #ff3f87;
+  text-shadow:
+    0 3px 10px rgba(255, 63, 135, 0.25);
+  opacity: 0;
+  animation:
+    textShow 1s ease 0.6s forwards;
+}
+@keyframes textShow {
+  from {
+    opacity: 0;
+    transform:
+      translateY(25px);
+  }
+  to {
+    opacity: 1;
+    transform:
+      translateY(0);
+  }
+}
+/* =========================
+   LOVE BUBBLE
+========================= */
+.bubble {
+  position: fixed;
+  padding: 10px 18px;
+  background: rgba(
+    255,
+    255,
+    255,
+    0.9
+  );
+  border-radius: 50px;
+  color: #ff4f91;
+  font-size: 16px;
+  font-weight: bold;
+  pointer-events: none;
+  z-index: 20;
+  animation:
+    bubbleUp 3s ease-out forwards;
+}
+@keyframes bubbleUp {
+  0% {
+    opacity: 0;
+    transform:
+      translateY(0)
+      scale(0.3);
+  }
+  15% {
+    opacity: 1;
+    transform:
+      translateY(-20px)
+      scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform:
+      translateY(-350px)
+      scale(1.2);
+  }
+}
+/* =========================
+   HEART
+========================= */
+.heart {
+  position: fixed;
+  color: #ff4f91;
+  font-size: 25px;
+  pointer-events: none;
+  z-index: 15;
+  animation:
+    heartFloat 3s ease-out forwards;
+}
+@keyframes heartFloat {
+  0% {
+    opacity: 0;
+    transform:
+      translateY(0)
+      scale(0.5)
+      rotate(0deg);
+  }
+  20% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform:
+      translateY(-400px)
+      scale(1.5)
+      rotate(25deg);
+  }
+}
+/* =========================
+   MOBILE
+========================= */
+@media (max-width: 500px) {
+  #clickBtn {
+    padding: 14px 30px;
+    font-size: 18px;
+  }
+  .photo {
+    width: 75vw;
+    height: 75vw;
+  }
+  .love-text {
+    font-size: 30px;
+  }
+  .bubble {
+    font-size: 14px;
+    padding: 8px 15px;
+  }
+}
